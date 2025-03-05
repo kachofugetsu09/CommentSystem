@@ -19,7 +19,7 @@ public class RedisIdWorker {
         LocalDateTime time = LocalDateTime.now();
         long nowSecond =time.toEpochSecond(ZoneOffset.UTC);
         long timestamp = nowSecond - BEGIN_TIMESTAMP;
-        //2。生成序列号
+        //2.生成序列号
         String date = time.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
         long count = stringRedisTemplate.opsForValue().increment("icr:" + keyPrefix + ":" + date);
 
